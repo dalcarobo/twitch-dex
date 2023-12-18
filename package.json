@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "A Pokedex command for Twitch chat.",
   "author": "Gabriel Dal Carobo",
-  "main": "api/index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "vercel-build": "echo hello"
   },
   "license": "ISC",
   "dependencies": {
