@@ -13,7 +13,7 @@ async function getBy_(q, t) {
   return data;
 }
 
-app.get("/dex", async function (req, res) {
+app.get("/", async function (req, res) {
   let out = "";
   const random = Math.floor(Math.random() * 1292) + 1;
   const pkmn = await getBy_(random, "pokemon");
@@ -26,7 +26,7 @@ app.get("/dex", async function (req, res) {
   res.send(out);
 });
 
-app.get("/dex/about", function (req, res) {
+app.get("/about", function (req, res) {
   let out = "";
   out += ` ${unifont("ABOUT", "sansbold")} 🛈\n`;
   out += ` ➤ This command is brought to you by https://twitch.tv/ocarbono\n`;
@@ -38,7 +38,7 @@ app.get("/dex/about", function (req, res) {
   res.send(out);
 });
 
-app.get("/dex/help", function (req, res) {
+app.get("/help", function (req, res) {
   let out = "";
   out += ` ${unifont("HELP", "sansbold")} ❓\n`;
   out += ` ➤ "${unifont(CMD, "sansbold")}" to get a random Pokemon.\n`;
@@ -65,7 +65,7 @@ app.get("/dex/help", function (req, res) {
   res.send(out);
 });
 
-app.get("/dex/:q", async function (req, res) {
+app.get("/:q", async function (req, res) {
   let out = "";
   var q = String(req.params.q).trim();
   if (q.match(/^!\w+ ?/)) q = q.replace(/^!\w+ ?/, ""); // remove !dex prefix if present because streamelements includes it
