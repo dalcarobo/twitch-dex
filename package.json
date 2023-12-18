@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A Pokedex command for Twitch chat.",
   "author": "Gabriel Dal Carobo",
-  "main": "app.js",
+  "main": "api/index.js",
   "scripts": {
     "start": "nodemon app.js"
   },
