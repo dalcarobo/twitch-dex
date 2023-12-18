@@ -69,7 +69,7 @@ app.get("/:q", async function (req, res) {
   let out = "";
   var q = String(req.params.q).trim();
   if (q.match(/^!\w+ ?/)) q = q.replace(/^!\w+ ?/, ""); // remove !dex prefix if present because streamelements includes it
-  if (q.trim() === "") return res.redirect("/dex");
+  if (q.trim() === "") return res.redirect("/");
 
   const QUERY_BY_TYPE = /^(types?) (.*)/;
   const QUERY_BY_ABILITY = /^(ability?) (.*)/;
@@ -95,6 +95,8 @@ app.get("/:q", async function (req, res) {
     }
   } else {
     if (q) {
+      if (q === "help") return res.redirect("/help");
+      if (q === "about") return res.redirect("/about");
       const pkmn = await getBy_(q, "pokemon");
       if (!pkmn) {
         out =
